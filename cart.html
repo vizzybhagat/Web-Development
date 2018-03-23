@@ -1,0 +1,117 @@
+<?php
+include 'db.php';
+session_start();
+if (isset($_GET["pid"])) {
+    $sql = "SELECT * FROM `cart` WHERE loginid=".$_SESSION["lid"]." AND pid=".$_GET["pid"];
+    $res = $con->query($sql);
+    if ($res->num_rows == 0) {
+        $sql = "INSERT INTO `cart` (`pid`, `loginid`) VALUES (".$_GET["pid"].",".$_SESSION["lid"].")";
+        $res = $con->query($sql);
+        if ($res === TRUE) {
+            header("Location: cart.php");
+        }
+    }
+}
+if (isset($_GET["pdid"])) {
+    $sql = "DELETE FROM `cart` WHERE pid=".$_GET["pdid"];
+    $res = $con->query($sql);
+    if ($res === TRUE) {
+        header("Location: cart.php");
+        }
+}
+?>
+<html>
+  <head>
+    <title>
+      www.DEVOUR.com
+    </title>
+      <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+      <link href="css/sty.css" rel="stylesheet" type="text/css" media="all" />
+      <link rel="stylesheet" href="mainpage.css" type="text/CSS">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
+      <script>
+            function addItem(){
+          var ul = document.getElementById("dynamic-list");
+          var candidate = document.getElementById("candidate");
+          var li = document.createElement("li");
+          li.setAttribute('id',candidate.value);
+          li.appendChild(document.createTextNode(candidate.value));
+          ul.appendChild(li);
+      }
+
+      function removeItem(){
+          var ul = document.getElementById("dynamic-list");
+          var candidate = document.getElementById("candidate");
+          var item = document.getElementById(candidate.value);
+          ul.removeChild(item);
+      }   
+    </script>
+  </head>
+  <body>
+      <div class="header">
+    <div class="container">
+      <div class="top-header">
+        <div class="logo">
+          <a href="index.html"><img src="img/header.png" class="img-responsive" alt="" /></a>
+        </div>
+        <div class="queries">
+          <p>Questions? Call us Toll-free!<span>1800-0000-7777 </span><label>(11AM to 11PM)</label></p>
+        </div>
+                <div class="clearfix"></div>
+            </div>
+               
+      </div>
+        <div class="menu-bar">
+      <div class="container">
+                
+            <div class="login-section">
+          <ul>
+            <li><a href="ind.html">Home</a>  </li> |
+            
+            <li><a href="help.html">Help</a></li>
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+            </div>
+        </div>
+        <div class="container">
+            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Items</th>
+        <th>Price</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td><button type="button" class="btn btn-success" onclick="addItem()">Add to cart</button></td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td><button type="button" class="btn btn-success" onclick="addItem()">Add to cart</button></td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td><button type="button" class="btn btn-success" onclick="addItem()">Add to cart</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+      <form method="get" action="cash.php">
+        <div class="form-group">
+          <label for="name">Enter User Name</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        
+      </form>
+  </body>
+</html>

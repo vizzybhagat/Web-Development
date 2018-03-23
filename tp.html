@@ -1,0 +1,99 @@
+<!DOCTYPE html>  
+<html lang="en"><head>  
+<meta charset="utf-8">  
+<title>Registration</title>  
+<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />  
+<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. " />  
+<link rel='stylesheet' href='tp.css' type='text/css' />  
+<script src="tp.js"></script>  
+</head>  
+<body onload="document.registration.userid.focus();">  
+<div class="cent">
+<h1>SIGN UP</h1>  
+<form name='registration' onSubmit="return formValidation();">  
+<ul>  
+<li><label for="userid">User id:</label></li>  
+<li><input type="text" name="userid" size="12" /></li>  
+<li><label for="passid">Password:</label></li>  
+<li><input type="password" name="passid" size="12" /></li>  
+<li><label for="username">Name:</label></li>  
+<li><input type="text" name="username" size="30" /></li>  
+<li><label for="address">Address:</label></li>  
+<li><input type="text" name="address" size="30" /></li>  
+<li><label for="country">Country:</label></li>  
+<li><select name="country">  
+<option selected="" value="Default">(Please select a country)</option>  
+<option value="AF">Australia</option>  
+<option value="AL">Canada</option>  
+<option value="DZ">India</option>  
+<option value="AS">Russia</option>  
+<option value="AD">USA</option>  
+</select></li>  
+<li><label for="email">Email:</label></li>  
+<li><input type="text" name="email" size="30" /></li>  
+<li><label id="gender">Gender:</label></li>  
+<li><input type="radio" name="msex" value="Male" /><span>Male</span></li>  
+<li><input type="radio" name="fsex" value="Female" /><span>Female</span></li>  
+</ul>
+Birthdate:<br>
+  Day:
+  <select name="day">
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>  
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+   <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+   <option value="20">20</option>
+          </select>                          
+   Month:
+  <select name="Month">
+  <option value="01">January</option>
+  <option value="02">February</option>
+  <option value="03">March</option>
+  <option value="04">April</option>  
+  <option value="05">May</option>
+  <option value="06">June</option>
+  <option value="07">July</option>
+  <option value="08">August</option>
+  <option value="09">September</option>
+  <option value="10">October</option>
+  <option value="11">November</option>
+  <option value="December">December</option>
+ </select>
+ 
+  Year:
+  <select name="Month">
+  <option value="01">1995</option>
+  <option value="02">1996</option>
+  <option value="03">1997</option>
+  <option value="04">1998</option>  
+  <option value="05">1999</option>
+  <option value="06">2000</option>
+  <option value="07">2001</option>
+  <option value="08">2002</option>
+  <option value="09">2003</option>
+
+ </select>
+ <br>
+ <br>
+<input type="submit" name="submit" value="Submit" /></li>  
+  
+</form>
+
+</div>
+</body>  
+</html>  
